@@ -1,19 +1,25 @@
 How to configure this environment!!
 
 Step-1: Create repo in GitHub and intitalize readme file.
+  --->Clone this repository on your local git.
+  --->Create some webpages.
+  --->Add post-commit hook, so all webpages directly push when developer commit.
+  --->Commit with two different branch.
+
+ ------------------------------      WHY you have to commit with two different branch?     -------------------------------------------
+
+  --->Here master branch code run as your production environment and another branch is for creating tsting environment.
 
 Step-2: Here we create total 3 Jobs in Jenkins and every job is assigned a task that they completed automatically, we just need to set up that.
 
 Step-3: 
 
 Job-1:
-
-In this Step, we configure our first job for master branch of GitHub
-
---> Job is get data(every minute) from GitHub and copy it in one folder.
-
--->launch docker image from job and mount it with this folder and expose it so outside world can connect to it.
-
+In this Step, we con.figure our first job for master branch of GitHub
+---> Job is get data(every minute) from GitHub and copy it in one folder.
+        --->For this use poll SCM in GitHub and write 5 star(* * * * *) there. 
+--->launch docker image from job and mount it with this folder and expose it so outside world can connect to it.
+        --->docker run -i -t -d -p 8082:80 --name production_os httpd:latest 
 -->This will work as a production OS.
 
 
@@ -23,9 +29,9 @@ Job-2:
 In this Step, we configure our first job for another branch of GitHub(In our case dev2)
 
 --> Job is get data(every minute) from GitHub and copy it in one folder.
-
+        --->For this use poll SCM in GitHub and write 5 star(* * * * *) there. 
 -->launch docker image from job and mount it with this folder and expose it so outside world can connect to it.
-
+        --->docker run -i -t -d -p 8082:80 --name testing_os httpd:latest 
 -->This will work as a Testing OS.
 
 
