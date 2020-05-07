@@ -1,4 +1,8 @@
 How to configure this environment!!
+Requirements:
+1.You need to install Jenkins,docker,git, GitHub account.
+2.You need httpd image of docker.
+
 
 Step-1: Create repo in GitHub and intitalize readme file.
   --->Clone this repository on your local git.
@@ -20,27 +24,35 @@ In this Step, we con.figure our first job for master branch of GitHub
         --->For this use poll SCM in GitHub and write 5 star(* * * * *) there. 
 --->launch docker image from job and mount it with this folder and expose it so outside world can connect to it.
         --->docker run -i -t -d -p 8082:80 --name production_os httpd:latest 
--->This will work as a production OS.
+--->This will work as a production OS.
 
 
 Step-4:
-Job-2:
 
+Job-2:
 In this Step, we configure our first job for another branch of GitHub(In our case dev2)
 
---> Job is get data(every minute) from GitHub and copy it in one folder.
+---> Job is get data(every minute) from GitHub and copy it in one folder.
         --->For this use poll SCM in GitHub and write 5 star(* * * * *) there. 
--->launch docker image from job and mount it with this folder and expose it so outside world can connect to it.
+--->launch docker image from job and mount it with this folder and expose it so outside world can connect to it.
         --->docker run -i -t -d -p 8082:80 --name testing_os httpd:latest 
--->This will work as a Testing OS.
+--->This will work as a Testing OS.
 
 
 Step-5:
 
 Job-3:
+--->Here QAT(Quality Assurance Team) check the content of that webpages working or not and check some other things.
+--->If all thing workingfine then, they give certy.
+--->They have remote trigger to run jenkins third job(job3).
 
-In this step, we merge data of dev2 branch with master branch when our QAT(Quality Assurance Team) certify our testing os is working fine.
+In this job, when Jenkins remotely triggered, it goes to GitHub and merge both branches.
+--->Now our webpages are updated and client can acccess it easily.
+--->Now, your complete setup is automatic.
 
--->Merge dev2 with master branch and all aditional facilities of dev2 branch added to our production OS.
+-------------------------                         Why to use this approach                                -------------------------
+--->In this approach all the process are automatic, so no chances of human error.
+--->Here, we use docker so our complete setup will launch in one second only first time u have to manually do this tasks for automation.
 
--->Now, your complete setup is automatic.
+--->Many times in testing our code work but in real world it fails.
+--->But here we use docker so it solves all this type issues and all the container(OS) has same environment and same softwares.
