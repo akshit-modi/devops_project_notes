@@ -1,0 +1,38 @@
+Step-1: Create repo in GitHub and intitalize readme file.
+
+Step-2: Here we create total 3 Jobs in Jenkins and every job is assigned a task that they completed automatically, we just need to set up that.
+
+Step-3: 
+
+Job-1:
+
+In this Step, we configure our first job for master branch of GitHub
+
+--> Job is get data(every minute) from GitHub and copy it in one folder.
+
+-->launch docker image from job and mount it with this folder and expose it so outside world can connect to it.
+
+-->This will work as a production OS.
+
+
+Step-4:
+Job-2:
+
+In this Step, we configure our first job for another branch of GitHub(In our case dev2)
+
+--> Job is get data(every minute) from GitHub and copy it in one folder.
+
+-->launch docker image from job and mount it with this folder and expose it so outside world can connect to it.
+
+-->This will work as a Testing OS.
+
+
+Step-5:
+
+Job-3:
+
+In this step, we merge data of dev2 branch with master branch when our QAT(Quality Assurance Team) certify our testing os is working fine.
+
+-->Merge dev2 with master branch and all aditional facilities of dev2 branch added to our production OS.
+
+-->Now, your complete setup is automatic.
